@@ -23,6 +23,7 @@ const chainStyles: Record<ChainId, string> = {
   optimism: "bg-chain-optimism/15 text-chain-optimism",
   avalanche: "bg-chain-avalanche/15 text-chain-avalanche",
   base: "bg-chain-base/15 text-chain-base",
+  reserve: "bg-chain-reserve/15 text-chain-reserve",
 };
 
 export function Badge({

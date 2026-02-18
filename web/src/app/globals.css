@@ -49,6 +49,13 @@
   --color-chain-optimism: #FF0420;
   --color-chain-avalanche: #E84142;
   --color-chain-base: #0052FF;
+  --color-chain-reserve: #D4A843;
+
+  /* Metals */
+  --color-metal-gold: #D4A843;
+  --color-metal-silver: #A8A9AD;
+  --color-metal-platinum: #B4C0CB;
+  --color-metal-palladium: #C2A882;
 
   /* Typography */
   --font-sans: var(--font-inter), system-ui, sans-serif;

@@ -1,70 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
-
-/* ── Sparkle canvas ────────────────────────────────────────────── */
-function SparkleCanvas() {
-  const ref = useRef<HTMLCanvasElement>(null);
-  const reduced = useReducedMotion();
-
-  useEffect(() => {
-    if (reduced) return;
-    const c = ref.current;
-    if (!c) return;
-    const ctx = c.getContext("2d");
-    if (!ctx) return;
-
-    let raf: number;
-    const dots: {
-      x: number; y: number; vx: number; vy: number;
-      r: number; o: number; h: number;
-    }[] = [];
-
-    function resize() {
-      c!.width = c!.offsetWidth * devicePixelRatio;
-      c!.height = c!.offsetHeight * devicePixelRatio;
-      ctx!.scale(devicePixelRatio, devicePixelRatio);
-    }
-    resize();
-    addEventListener("resize", resize);
-
-    for (let i = 0; i < 50; i++) {
-      dots.push({
-        x: Math.random() * c.offsetWidth,
-        y: Math.random() * c.offsetHeight,
-        vx: (Math.random() - 0.5) * 0.25,
-        vy: (Math.random() - 0.5) * 0.25,
-        r: Math.random() * 1.8 + 0.4,
-        o: Math.random() * 0.4 + 0.08,
-        h: Math.random() > 0.5 ? 235 : 185,
-      });
-    }
-
-    function draw() {
-      ctx!.clearRect(0, 0, c!.offsetWidth, c!.offsetHeight);
-      for (const d of dots) {
-        d.x += d.vx; d.y += d.vy;
-        if (d.x < 0 || d.x > c!.offsetWidth) d.vx *= -1;
-        if (d.y < 0 || d.y > c!.offsetHeight) d.vy *= -1;
-        ctx!.beginPath();
-        ctx!.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-        ctx!.fillStyle = `hsla(${d.h},80%,70%,${d.o})`;
-        ctx!.fill();
-      }
-      raf = requestAnimationFrame(draw);
-    }
-    draw();
-    return () => { cancelAnimationFrame(raf); removeEventListener("resize", resize); };
-  }, [reduced]);
-
-  return <canvas ref={ref} className="pointer-events-none absolute inset-0 h-full w-full" aria-hidden="true" />;
-}
+import { CyberpunkBackground } from "./cyberpunk-bg";
 
 /* ── Mesh gradient bg ──────────────────────────────────────────── */
 function MeshGradient() {
@@ -77,14 +20,6 @@ function MeshGradient() {
       <div className="absolute -bottom-32 right-1/3 h-[400px] w-[400px] rounded-full opacity-10 blur-[100px]"
         style={{ background: "radial-gradient(circle, #22D3EE 0%, transparent 60%)" }} />
     </div>
-  );
-}
-
-/* ── Dot grid ──────────────────────────────────────────────────── */
-function DotGrid() {
-  return (
-    <div className="pointer-events-none absolute inset-0 animate-grid-fade" aria-hidden="true"
-      style={{ backgroundImage: "radial-gradient(circle, rgba(136,136,160,0.12) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
   );
 }
 
@@ -106,8 +41,7 @@ export function Hero() {
     <section ref={sectionRef} className="relative min-h-screen overflow-hidden">
       {/* Layered bg */}
       <MeshGradient />
-      <DotGrid />
-      <SparkleCanvas />
+      <CyberpunkBackground />
       <div className="pointer-events-none absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-gray-950 to-transparent" />
       <div className="pointer-events-none absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-gray-950 to-transparent z-20" />
 

@@ -11,7 +11,7 @@ export function AssetTable() {
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle>Assets</CardTitle>
-          <span className="text-xs text-gray-500">{MOCK_ASSETS.length} tokens</span>
+          <span className="text-xs text-gray-500">{MOCK_ASSETS.length} holdings</span>
         </div>
       </CardHeader>
       <CardContent>
@@ -23,7 +23,7 @@ export function AssetTable() {
                 <th className="pb-3 pr-4 text-xs font-medium tracking-wider text-gray-500 uppercase">Balance</th>
                 <th className="pb-3 pr-4 text-xs font-medium tracking-wider text-gray-500 uppercase">Value</th>
                 <th className="pb-3 pr-4 text-xs font-medium tracking-wider text-gray-500 uppercase">24h</th>
-                <th className="pb-3 text-xs font-medium tracking-wider text-gray-500 uppercase">Chain</th>
+                <th className="pb-3 text-xs font-medium tracking-wider text-gray-500 uppercase">Type</th>
               </tr>
             </thead>
             <tbody>
@@ -62,7 +62,9 @@ export function AssetTable() {
                     </span>
                   </td>
                   <td className="py-3">
-                    <Badge chain={asset.chain as ChainId}>{asset.chain}</Badge>
+                    <Badge chain={asset.chain as ChainId}>
+                      {asset.chain === "reserve" ? "reserve" : asset.chain}
+                    </Badge>
                   </td>
                 </tr>
               ))}

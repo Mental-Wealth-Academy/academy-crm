@@ -8,7 +8,8 @@ export type ChainId =
   | "arbitrum"
   | "optimism"
   | "avalanche"
-  | "base";
+  | "base"
+  | "reserve";
 
 export type BadgeVariant =
   | "default"

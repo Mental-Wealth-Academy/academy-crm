@@ -8,11 +8,13 @@ import type { ChainId } from "@/types";
 
 type Tab = "overview" | "assets";
 
-const CHAIN_BREAKDOWN = [
-  { color: "bg-chain-ethereum", label: "Ethereum", pct: "30%", value: "$89,801" },
-  { color: "bg-chain-base", label: "Base", pct: "25%", value: "$74,835" },
-  { color: "bg-chain-polygon", label: "Polygon", pct: "20%", value: "$59,868" },
-  { color: "bg-purple-500", label: "Other", pct: "25%", value: "$74,835" },
+const ALLOCATION_BREAKDOWN = [
+  { color: "bg-metal-gold", label: "Gold", pct: "35%", value: "$290,000" },
+  { color: "bg-metal-silver", label: "Silver", pct: "19%", value: "$160,000" },
+  { color: "bg-chain-ethereum", label: "Crypto", pct: "15%", value: "$124,339" },
+  { color: "bg-chain-base", label: "Stablecoins", pct: "21%", value: "$175,000" },
+  { color: "bg-metal-platinum", label: "Platinum", pct: "6%", value: "$50,000" },
+  { color: "bg-metal-palladium", label: "Palladium", pct: "3%", value: "$23,750" },
 ];
 
 export function PortfolioCard() {
@@ -30,13 +32,13 @@ export function PortfolioCard() {
           </p>
           <div className="flex items-end gap-3 mt-1">
             <span className="text-3xl font-bold tracking-tight text-gray-50">
-              $299,339
+              $823,089
             </span>
             <span className="mb-0.5 rounded-full bg-success/10 px-2 py-0.5 text-xs font-medium text-success">
-              +3.2%
+              +1.4%
             </span>
           </div>
-          <p className="text-sm text-gray-500 mt-0.5">Across 5 chains</p>
+          <p className="text-sm text-gray-500 mt-0.5">Across 4 chains + reserves</p>
         </div>
         <div className="flex rounded-lg border border-white/[0.06] bg-white/[0.03] p-0.5">
           <button
@@ -76,24 +78,31 @@ function OverviewTab() {
       <div className="relative h-32 w-32 shrink-0">
         <svg viewBox="0 0 36 36" className="h-full w-full -rotate-90">
           <circle cx="18" cy="18" r="14" fill="none" stroke="#1A1A24" strokeWidth="3.5" />
-          <circle cx="18" cy="18" r="14" fill="none" stroke="#627EEA" strokeWidth="3.5"
-            strokeDasharray="30 70" strokeDashoffset="0" strokeLinecap="round" />
+          {/* Gold 35% */}
+          <circle cx="18" cy="18" r="14" fill="none" stroke="#D4A843" strokeWidth="3.5"
+            strokeDasharray="35 65" strokeDashoffset="0" strokeLinecap="round" />
+          {/* Stablecoins 21% */}
           <circle cx="18" cy="18" r="14" fill="none" stroke="#0052FF" strokeWidth="3.5"
-            strokeDasharray="25 75" strokeDashoffset="-30" strokeLinecap="round" />
-          <circle cx="18" cy="18" r="14" fill="none" stroke="#8247E5" strokeWidth="3.5"
-            strokeDasharray="20 80" strokeDashoffset="-55" strokeLinecap="round" />
-          <circle cx="18" cy="18" r="14" fill="none" stroke="#6366F1" strokeWidth="3.5"
-            strokeDasharray="25 75" strokeDashoffset="-75" strokeLinecap="round" />
+            strokeDasharray="21 79" strokeDashoffset="-35" strokeLinecap="round" />
+          {/* Silver 19% */}
+          <circle cx="18" cy="18" r="14" fill="none" stroke="#A8A9AD" strokeWidth="3.5"
+            strokeDasharray="19 81" strokeDashoffset="-56" strokeLinecap="round" />
+          {/* Crypto 15% */}
+          <circle cx="18" cy="18" r="14" fill="none" stroke="#627EEA" strokeWidth="3.5"
+            strokeDasharray="15 85" strokeDashoffset="-75" strokeLinecap="round" />
+          {/* Platinum + Palladium 10% */}
+          <circle cx="18" cy="18" r="14" fill="none" stroke="#B4C0CB" strokeWidth="3.5"
+            strokeDasharray="10 90" strokeDashoffset="-90" strokeLinecap="round" />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <span className="text-[10px] text-gray-500">TVL</span>
-          <span className="text-sm font-bold text-gray-50">$299K</span>
+          <span className="text-sm font-bold text-gray-50">$823K</span>
         </div>
       </div>
 
-      {/* Chain breakdown */}
+      {/* Allocation breakdown */}
       <div className="flex flex-1 flex-col gap-3">
-        {CHAIN_BREAKDOWN.map((item) => (
+        {ALLOCATION_BREAKDOWN.map((item) => (
           <div key={item.label} className="flex items-center gap-3">
             <span className={`h-2.5 w-2.5 rounded-full ${item.color}`} />
             <span className="text-sm text-gray-300 flex-1">{item.label}</span>
@@ -116,7 +125,7 @@ function AssetsTab() {
             <th className="pb-3 pr-4 text-xs font-medium tracking-wider text-gray-500 uppercase">Balance</th>
             <th className="pb-3 pr-4 text-xs font-medium tracking-wider text-gray-500 uppercase">Value</th>
             <th className="pb-3 pr-4 text-xs font-medium tracking-wider text-gray-500 uppercase">24h</th>
-            <th className="pb-3 text-xs font-medium tracking-wider text-gray-500 uppercase">Chain</th>
+            <th className="pb-3 text-xs font-medium tracking-wider text-gray-500 uppercase">Type</th>
           </tr>
         </thead>
         <tbody>
@@ -149,7 +158,9 @@ function AssetsTab() {
                 </span>
               </td>
               <td className="py-3">
-                <Badge chain={asset.chain as ChainId}>{asset.chain}</Badge>
+                <Badge chain={asset.chain as ChainId}>
+                  {asset.chain === "reserve" ? "reserve" : asset.chain}
+                </Badge>
               </td>
             </tr>
           ))}

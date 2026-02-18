@@ -271,9 +271,13 @@ export const MOCK_AUTOMATIONS = [
 ] as const;
 
 export const MOCK_ASSETS = [
+  { symbol: "XAU", name: "Gold", balance: "100 oz", value: "$290,000.00", change: "+0.8%", chain: "reserve" as const },
+  { symbol: "XAG", name: "Silver", balance: "5,000 oz", value: "$160,000.00", change: "+1.2%", chain: "reserve" as const },
   { symbol: "ETH", name: "Ethereum", balance: "12.45", value: "$41,234.50", change: "+2.4%", chain: "ethereum" as const },
   { symbol: "USDC", name: "USD Coin", balance: "125,000", value: "$125,000.00", change: "0.0%", chain: "base" as const },
   { symbol: "LINK", name: "Chainlink", balance: "5,000", value: "$72,500.00", change: "+5.1%", chain: "ethereum" as const },
+  { symbol: "XPT", name: "Platinum", balance: "50 oz", value: "$50,000.00", change: "-0.3%", chain: "reserve" as const },
   { symbol: "USDC", name: "USD Coin", balance: "50,000", value: "$50,000.00", change: "0.0%", chain: "arbitrum" as const },
+  { symbol: "XPD", name: "Palladium", balance: "25 oz", value: "$23,750.00", change: "+0.5%", chain: "reserve" as const },
   { symbol: "ETH", name: "Ethereum", balance: "3.2", value: "$10,604.80", change: "+2.4%", chain: "optimism" as const },
 ] as const;
