@@ -270,6 +270,194 @@ export const MOCK_AUTOMATIONS = [
   },
 ] as const;
 
+import type {
+  CREWorkflow,
+  AzuraResponse,
+  ChainlinkCapability,
+  PrivacyLevel,
+} from "@/types";
+
+export const MOCK_WORKFLOWS: CREWorkflow[] = [
+  {
+    id: "1",
+    name: "Weekly Payroll",
+    status: "active",
+    trigger: "cron",
+    lastRun: "2 hours ago",
+    nextRun: "Fri 09:00 UTC",
+    capabilities: ["data-feeds", "automation"],
+    privacy: "encrypted",
+    description:
+      "Distributes USDC payroll to 12 team wallets every Friday. Data Feeds verify stablecoin peg before execution. Amounts encrypted via Privacy Shield.",
+  },
+  {
+    id: "2",
+    name: "Portfolio Rebalance",
+    status: "active",
+    trigger: "threshold",
+    lastRun: "6 hours ago",
+    nextRun: "On drift > 5%",
+    capabilities: ["data-streams", "automation"],
+    privacy: "standard",
+    description:
+      "Monitors portfolio allocation in real-time via Data Streams. Triggers rebalance trades when any asset drifts more than 5% from target weight.",
+  },
+  {
+    id: "3",
+    name: "CCIP Bridge to L2",
+    status: "paused",
+    trigger: "manual",
+    lastRun: "3 days ago",
+    nextRun: "—",
+    capabilities: ["ccip"],
+    privacy: "confidential",
+    description:
+      "Bridges treasury reserves from Ethereum to Base or Arbitrum using CCIP. Confidential mode hides transfer amounts and destination from public view.",
+  },
+  {
+    id: "4",
+    name: "Gas Fee Monitor",
+    status: "active",
+    trigger: "event",
+    lastRun: "12 min ago",
+    nextRun: "Continuous",
+    capabilities: ["data-streams"],
+    privacy: "standard",
+    description:
+      "Streams real-time gas prices across 5 chains. Alerts when gas drops below threshold for optimal transaction timing.",
+  },
+  {
+    id: "5",
+    name: "Treasury Yield Sweep",
+    status: "paused",
+    trigger: "cron",
+    lastRun: "1 day ago",
+    nextRun: "—",
+    capabilities: ["data-feeds", "ccip", "automation"],
+    privacy: "encrypted",
+    description:
+      "Sweeps idle USDC into highest-yield vaults across chains. Uses Data Feeds for rate comparison and CCIP for cross-chain movement.",
+  },
+];
+
+export const AZURA_RESPONSES: AzuraResponse[] = [
+  {
+    id: "rebalance",
+    query: "Rebalance my portfolio",
+    title: "Portfolio Rebalance Analysis",
+    summary:
+      "Your portfolio has drifted from target allocation. Here's the proposed adjustment based on real-time pricing.",
+    sections: [
+      {
+        label: "Current Drift",
+        content:
+          "ETH: 38% (target 30%) — over by 8%\nBTC: 41% (target 40%) — on target\nUSDC: 21% (target 30%) — under by 9%",
+      },
+      {
+        label: "Proposed Trades",
+        content:
+          "1. Sell 2.1 ETH → 6,930 USDC (via Uniswap on Base)\n2. Move 6,930 USDC to reserve allocation\n3. Estimated slippage: 0.08%",
+      },
+      {
+        label: "Execution",
+        content:
+          "Trades will execute via CRE Workflow with Automation trigger.\nPricing sourced from Data Streams (sub-second updates).",
+      },
+    ],
+    chainlinkProducts: ["data-streams", "automation", "cre-workflows"],
+    privacyAvailable: false,
+  },
+  {
+    id: "bridge",
+    query: "Bridge 10k USDC to Base",
+    title: "CCIP Bridge Transfer",
+    summary:
+      "Ready to bridge 10,000 USDC from Ethereum to Base via Chainlink CCIP.",
+    sections: [
+      {
+        label: "Transfer Details",
+        content:
+          "Amount: 10,000 USDC\nFrom: Ethereum Mainnet\nTo: Base\nProtocol: Chainlink CCIP",
+      },
+      {
+        label: "Fees & Timeline",
+        content:
+          "Bridge fee: ~$2.40 (paid in LINK)\nEstimated time: 15–20 minutes\nSecurity: Full finality via CCIP attestation",
+      },
+      {
+        label: "Privacy Shield",
+        content:
+          "Privacy Shield is available for this transfer.\nEnable to encrypt transfer amount and destination on-chain.",
+      },
+    ],
+    chainlinkProducts: ["ccip"],
+    privacyAvailable: true,
+  },
+  {
+    id: "gas",
+    query: "Show gas fees across chains",
+    title: "Live Gas Fees",
+    summary:
+      "Real-time gas prices across 5 chains, powered by Chainlink Data Streams.",
+    sections: [],
+    table: {
+      headers: ["Chain", "Gas (Gwei)", "Avg Tx Cost", "Speed"],
+      rows: [
+        ["Ethereum", "24.3", "$4.82", "~15s"],
+        ["Base", "0.008", "$0.01", "~2s"],
+        ["Arbitrum", "0.12", "$0.06", "~2s"],
+        ["Optimism", "0.009", "$0.02", "~2s"],
+        ["Polygon", "31.5", "$0.03", "~5s"],
+      ],
+    },
+    chainlinkProducts: ["data-streams"],
+    privacyAvailable: false,
+  },
+  {
+    id: "payroll",
+    query: "Set up weekly payroll",
+    title: "CRE Workflow: Weekly Payroll",
+    summary:
+      "Configure an automated payroll workflow using Chainlink CRE.",
+    sections: [
+      {
+        label: "Workflow Config",
+        content:
+          "Trigger: Cron — every Friday at 09:00 UTC\nAction: Distribute USDC to recipient list\nValidation: Data Feeds verify USDC peg before execution",
+      },
+      {
+        label: "Recipients",
+        content:
+          "Add wallet addresses and amounts in the Payroll tab.\nSupports up to 50 recipients per batch.",
+      },
+      {
+        label: "Privacy Shield",
+        content:
+          "Enable Privacy Shield to encrypt payment amounts.\nRecipient addresses remain visible; amounts are hidden on-chain.",
+      },
+    ],
+    chainlinkProducts: ["data-feeds", "automation", "cre-workflows"],
+    privacyAvailable: true,
+  },
+];
+
+export const CHAINLINK_PRODUCT_LABELS: Record<ChainlinkCapability, string> = {
+  "data-streams": "Data Streams",
+  ccip: "CCIP",
+  automation: "Automation",
+  "cre-workflows": "CRE Workflows",
+  "data-feeds": "Data Feeds",
+};
+
+export const PRIVACY_LABELS: Record<
+  PrivacyLevel,
+  { label: string; color: string }
+> = {
+  standard: { label: "Standard", color: "text-gray-500" },
+  encrypted: { label: "Encrypted", color: "text-cyan-400" },
+  confidential: { label: "Confidential", color: "text-purple-400" },
+};
+
 export const MOCK_ASSETS = [
   { symbol: "XAU", name: "Gold", balance: "100 oz", value: "$290,000.00", change: "+0.8%", chain: "reserve" as const },
   { symbol: "XAG", name: "Silver", balance: "5,000 oz", value: "$160,000.00", change: "+1.2%", chain: "reserve" as const },

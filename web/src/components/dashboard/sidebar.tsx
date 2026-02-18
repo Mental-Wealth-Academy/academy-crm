@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useAccount } from "wagmi";
 import { Logo } from "@/components/shared/logo";
 import { Icon } from "@/components/ui/icon";
 import { useSidebar } from "@/hooks/use-sidebar";
@@ -12,6 +13,7 @@ import type { IconName } from "@/types";
 export function Sidebar() {
   const { collapsed, mobileOpen, toggle, setMobileOpen } = useSidebar();
   const pathname = usePathname();
+  const { address, isConnected } = useAccount();
 
   return (
     <>
@@ -99,7 +101,11 @@ export function Sidebar() {
                 <span className="text-sm font-medium text-gray-50">
                   Treasury
                 </span>
-                <span className="text-xs text-gray-400">0x1a2b…3c4d</span>
+                <span className="text-xs text-gray-400">
+                  {isConnected && address
+                    ? `${address.slice(0, 6)}…${address.slice(-4)}`
+                    : "Not connected"}
+                </span>
               </div>
             )}
           </div>
