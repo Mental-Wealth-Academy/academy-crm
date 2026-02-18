@@ -38,15 +38,25 @@ export function WalletConnectButton() {
     );
   }
 
+  const hasWallet = connectors.length > 0 && typeof window !== "undefined" && window.ethereum;
+
   return (
     <Button
       variant="secondary"
       size="sm"
       className="gap-2"
-      onClick={() => connect({ connector: connectors[0] })}
+      onClick={() => {
+        if (hasWallet) {
+          connect({ connector: connectors[0] });
+        } else {
+          window.open("https://metamask.io/download/", "_blank", "noopener");
+        }
+      }}
     >
       <Icon name="wallet" size={16} />
-      <span className="hidden sm:inline">Connect Wallet</span>
+      <span className="hidden sm:inline">
+        {hasWallet ? "Connect Wallet" : "Install Wallet"}
+      </span>
     </Button>
   );
 }
