@@ -1,5 +1,8 @@
 @import "tailwindcss";
+@plugin './hero.ts';
 @source "../../src";
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
 
 @theme {
   /* Primary brand — indigo-violet (purplish-blue) */
@@ -22,6 +25,15 @@
   /* Violet bridge */
   --color-violet-400: #A78BFA;
   --color-violet-500: #8B5CF6;
+
+  /* Warm pop accents */
+  --color-rose-400: #FB7185;
+  --color-rose-500: #F43F5E;
+  --color-fuchsia-400: #E879F9;
+  --color-fuchsia-500: #D946EF;
+  --color-amber-400: #FBBF24;
+  --color-amber-500: #F59E0B;
+  --color-emerald-400: #34D399;
 
   /* Neutrals — cool-shifted */
   --color-gray-50: #EEEEF5;
@@ -79,6 +91,7 @@
   --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
   --animate-float: float 6s ease-in-out infinite;
   --animate-grid-fade: grid-fade 4s ease-in-out infinite;
+  --animate-color-shift: color-shift 8s ease-in-out infinite;
 }
 
 @keyframes pulse-glow {
@@ -104,6 +117,11 @@
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
+}
+
+@keyframes color-shift {
+  0%, 100% { filter: hue-rotate(0deg) brightness(1); }
+  50% { filter: hue-rotate(15deg) brightness(1.1); }
 }
 
 /* Dark-first defaults */

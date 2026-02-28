@@ -12,8 +12,8 @@ export function Footer() {
             <p className="text-sm text-gray-400">
               AI-managed digital treasury for your business. Powered by Chainlink.
             </p>
-            <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-gray-700 bg-gray-900 px-3 py-1 text-xs text-gray-400">
-              <span className="h-2 w-2 rounded-full bg-info" />
+            <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/5 px-3 py-1 text-xs text-blue-400">
+              <span className="h-2 w-2 rounded-full bg-blue-400 animate-pulse" />
               Built on Chainlink
             </div>
           </div>

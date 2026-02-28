@@ -19,6 +19,9 @@ function MeshGradient() {
         style={{ background: "radial-gradient(circle, #3B82F6 0%, #2563EB 40%, transparent 70%)" }} />
       <div className="absolute -bottom-32 right-1/3 h-[400px] w-[400px] rounded-full opacity-10 blur-[100px]"
         style={{ background: "radial-gradient(circle, #22D3EE 0%, transparent 60%)" }} />
+      {/* Warm fuchsia accent orb */}
+      <div className="absolute top-1/3 right-[10%] h-[300px] w-[300px] rounded-full opacity-[0.07] blur-[100px]"
+        style={{ background: "radial-gradient(circle, #E879F9 0%, #D946EF 40%, transparent 70%)" }} />
     </div>
   );
 }
@@ -90,7 +93,7 @@ export function Hero() {
 
             <motion.div variants={item}>
               <h1 className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl xl:text-6xl">
-                <span className="block text-gray-50">Your business treasury,</span>
+                <span className="block text-gray-50">Your CRM and Payroll,</span>
                 <span className="block text-cyan-400 mt-1">
                   managed by AI.
                 </span>
@@ -135,12 +138,12 @@ export function Hero() {
             {/* Stats strip */}
             <motion.div variants={item} className="flex items-center gap-6 pt-3">
               {[
-                { label: "Supported Chains", value: "6+" },
-                { label: "Uptime", value: "99.9%" },
-                { label: "Businesses Onboarded", value: "200+" },
+                { label: "Supported Chains", value: "6+", color: "text-cyan-400" },
+                { label: "Uptime", value: "99.9%", color: "text-emerald-400" },
+                { label: "Businesses Onboarded", value: "200+", color: "text-fuchsia-400" },
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col">
-                  <span className="text-lg font-bold text-gray-50">{stat.value}</span>
+                  <span className={`text-lg font-bold ${stat.color}`}>{stat.value}</span>
                   <span className="text-[11px] text-gray-500">{stat.label}</span>
                 </div>
               ))}

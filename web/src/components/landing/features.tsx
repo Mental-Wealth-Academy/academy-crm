@@ -6,13 +6,13 @@ import { fadeInUp, staggerContainer } from "@/lib/motion";
 import { FEATURES } from "@/lib/constants";
 import type { IconName } from "@/types";
 
-const iconColors: Record<string, { bg: string; text: string; glow: string }> = {
-  workflow: { bg: "bg-purple-500/10", text: "text-purple-400", glow: "group-hover:shadow-purple-500/20" },
-  crosschain: { bg: "bg-blue-500/10", text: "text-blue-400", glow: "group-hover:shadow-blue-500/20" },
-  code: { bg: "bg-cyan-400/10", text: "text-cyan-400", glow: "group-hover:shadow-cyan-400/20" },
-  shield: { bg: "bg-violet-500/10", text: "text-violet-400", glow: "group-hover:shadow-violet-500/20" },
-  monitor: { bg: "bg-success/10", text: "text-success", glow: "group-hover:shadow-success/20" },
-  globe: { bg: "bg-blue-400/10", text: "text-blue-400", glow: "group-hover:shadow-blue-400/20" },
+const iconColors: Record<string, { bg: string; text: string; glow: string; accent: string }> = {
+  workflow: { bg: "bg-purple-500/10", text: "text-purple-400", glow: "group-hover:shadow-purple-500/20", accent: "bg-purple-500" },
+  crosschain: { bg: "bg-blue-500/10", text: "text-blue-400", glow: "group-hover:shadow-blue-500/20", accent: "bg-blue-500" },
+  code: { bg: "bg-cyan-400/10", text: "text-cyan-400", glow: "group-hover:shadow-cyan-400/20", accent: "bg-cyan-400" },
+  shield: { bg: "bg-fuchsia-500/10", text: "text-fuchsia-400", glow: "group-hover:shadow-fuchsia-500/20", accent: "bg-fuchsia-500" },
+  monitor: { bg: "bg-emerald-400/10", text: "text-emerald-400", glow: "group-hover:shadow-emerald-400/20", accent: "bg-emerald-400" },
+  globe: { bg: "bg-rose-400/10", text: "text-rose-400", glow: "group-hover:shadow-rose-400/20", accent: "bg-rose-400" },
 };
 
 export function Features() {
@@ -44,8 +44,10 @@ export function Features() {
               <MotionWrapper
                 key={feature.title}
                 variants={fadeInUp}
-                className={`group relative rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.04] hover:shadow-lg ${colors.glow}`}
+                className={`group relative overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.1] hover:bg-white/[0.04] hover:shadow-lg ${colors.glow}`}
               >
+                {/* Colored top accent line */}
+                <div className={`absolute top-0 left-0 right-0 h-[2px] ${colors.accent} opacity-40 group-hover:opacity-70 transition-opacity duration-300`} />
                 <div className={`mb-4 flex h-10 w-10 items-center justify-center rounded-lg ${colors.bg} ${colors.text}`}>
                   <Icon name={feature.icon as IconName} size={20} />
                 </div>

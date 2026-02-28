@@ -50,15 +50,15 @@ export function DashboardPreview() {
               {/* Top stats row */}
               <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 mb-6">
                 {[
-                  { label: "Total Value Locked", value: "$2,847,391", change: "+12.4%", up: true },
-                  { label: "Active Workflows", value: "7", change: "+2 this week", up: true },
-                  { label: "Transactions (30d)", value: "342", change: "+18%", up: true },
-                  { label: "Gas Saved", value: "$4,210", change: "vs manual", up: true },
+                  { label: "Total Value Locked", value: "$2,847,391", change: "+12.4%", valueColor: "text-gray-50", changeColor: "text-emerald-400" },
+                  { label: "Active Workflows", value: "7", change: "+2 this week", valueColor: "text-purple-400", changeColor: "text-emerald-400" },
+                  { label: "Transactions (30d)", value: "342", change: "+18%", valueColor: "text-gray-50", changeColor: "text-cyan-400" },
+                  { label: "Gas Saved", value: "$4,210", change: "vs manual", valueColor: "text-amber-400", changeColor: "text-gray-500" },
                 ].map((stat) => (
                   <div key={stat.label} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
                     <p className="text-[11px] text-gray-500 uppercase tracking-wider mb-1">{stat.label}</p>
-                    <p className="text-xl font-bold text-gray-50 lg:text-2xl">{stat.value}</p>
-                    <p className="mt-1 text-xs text-success">{stat.change}</p>
+                    <p className={`text-xl font-bold lg:text-2xl ${stat.valueColor}`}>{stat.value}</p>
+                    <p className={`mt-1 text-xs ${stat.changeColor}`}>{stat.change}</p>
                   </div>
                 ))}
               </div>

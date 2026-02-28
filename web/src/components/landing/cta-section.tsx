@@ -16,6 +16,7 @@ export function CTASection() {
           {/* Mesh orbs */}
           <div className="pointer-events-none absolute -top-24 -right-24 h-[400px] w-[400px] rounded-full bg-purple-500/15 blur-[100px]" />
           <div className="pointer-events-none absolute -bottom-24 -left-24 h-[300px] w-[300px] rounded-full bg-blue-500/10 blur-[80px]" />
+          <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[250px] w-[250px] rounded-full bg-fuchsia-500/[0.06] blur-[80px]" />
 
           {/* Dot grid overlay */}
           <div
@@ -30,7 +31,8 @@ export function CTASection() {
           <div className="relative flex flex-col items-center gap-6">
             <MotionWrapper variants={fadeInUp}>
               <h2 className="text-3xl font-bold tracking-tight lg:text-4xl">
-                Ready to digitize your business treasury?
+                Ready to digitize your{" "}
+                <span className="text-fuchsia-400">business treasury</span>?
               </h2>
             </MotionWrapper>
 

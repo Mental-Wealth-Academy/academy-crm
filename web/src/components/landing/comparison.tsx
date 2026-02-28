@@ -61,8 +61,11 @@ export function Comparison() {
                       {c.name}
                     </th>
                   ))}
-                  <th className="px-5 py-4 text-center font-bold text-purple-400 border-l border-white/[0.06]">
-                    Azura
+                  <th className="relative px-5 py-4 text-center font-bold text-purple-400 border-l border-white/[0.06]">
+                    <span className="relative">
+                      Azura
+                      <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-fuchsia-400/60 rounded-full" />
+                    </span>
                   </th>
                 </tr>
               </thead>

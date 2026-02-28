@@ -6,8 +6,8 @@ import { HOW_IT_WORKS_STEPS } from "@/lib/constants";
 
 const stepColors = [
   { accent: "from-purple-500 to-violet-500", dot: "border-purple-500", text: "text-purple-400" },
-  { accent: "from-violet-500 to-blue-500", dot: "border-blue-500", text: "text-blue-400" },
-  { accent: "from-blue-500 to-cyan-400", dot: "border-cyan-400", text: "text-cyan-400" },
+  { accent: "from-violet-500 to-blue-500", dot: "border-cyan-400", text: "text-cyan-400" },
+  { accent: "from-blue-500 to-cyan-400", dot: "border-fuchsia-400", text: "text-fuchsia-400" },
 ];
 
 export function HowItWorks() {
