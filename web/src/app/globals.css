@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../assets/mwa-design-system.css";
 @plugin './hero.ts';
 @source "../../src";
 @source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
