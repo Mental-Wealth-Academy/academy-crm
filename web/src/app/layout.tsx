@@ -1,36 +1,45 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Poppins, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import { HeroUIProvider } from "@heroui/react";
 import { ThemeProvider } from "@/components/shared/theme-provider";
 import { Web3Provider } from "@/components/shared/web3-provider";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Azura — AI-Managed Digital Treasury for Your Business",
+  title: "Mental Wealth Academy — Your Mind, Productivity & Wealth Platform",
   description:
-    "Add Bitcoin, Ethereum, and stablecoins to your company's treasury. Azura's AI agent handles rebalancing, payroll, and cross-chain transfers automatically.",
+    "Mental Wealth Academy is an all-in-one academy and CRM platform for mental health, productivity, and wealth-building. Track progress, manage clients, and grow.",
   keywords: [
-    "digital treasury",
-    "business crypto",
-    "AI treasury management",
-    "Bitcoin",
-    "Ethereum",
-    "stablecoins",
-    "Chainlink",
-    "cross-chain",
-    "payroll",
+    "mental health",
+    "productivity",
+    "wealth",
+    "academy",
+    "CRM",
+    "personal development",
+    "coaching",
+    "mental wealth",
+    "learning platform",
   ],
 };
 
@@ -42,10 +51,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${poppins.variable} ${spaceGrotesk.variable} ${ibmPlexMono.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-gray-950 font-sans text-gray-50 antialiased">
+      <body
+        className="min-h-screen font-sans antialiased"
+        style={{ backgroundColor: "var(--mwa-bg)", color: "var(--mwa-text-dark)" }}
+      >
         <HeroUIProvider>
           <ThemeProvider>
             <Web3Provider>{children}</Web3Provider>

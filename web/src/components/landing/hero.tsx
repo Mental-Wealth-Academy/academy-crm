@@ -7,21 +7,20 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
-import { CyberpunkBackground } from "./cyberpunk-bg";
 
-/* ── Mesh gradient bg ──────────────────────────────────────────── */
-function MeshGradient() {
+/* ── Soft light background ─────────────────────────────────────── */
+function LightBackground() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      <div className="absolute -top-32 right-1/4 h-[600px] w-[600px] rounded-full opacity-25 blur-[120px]"
-        style={{ background: "radial-gradient(circle, #6366F1 0%, #4F46E5 40%, transparent 70%)" }} />
-      <div className="absolute top-1/2 -left-32 h-[500px] w-[500px] rounded-full opacity-15 blur-[100px]"
-        style={{ background: "radial-gradient(circle, #3B82F6 0%, #2563EB 40%, transparent 70%)" }} />
-      <div className="absolute -bottom-32 right-1/3 h-[400px] w-[400px] rounded-full opacity-10 blur-[100px]"
-        style={{ background: "radial-gradient(circle, #22D3EE 0%, transparent 60%)" }} />
-      {/* Warm fuchsia accent orb */}
-      <div className="absolute top-1/3 right-[10%] h-[300px] w-[300px] rounded-full opacity-[0.07] blur-[100px]"
-        style={{ background: "radial-gradient(circle, #E879F9 0%, #D946EF 40%, transparent 70%)" }} />
+      {/* Subtle primary glow top-right */}
+      <div className="absolute -top-32 right-1/4 h-[600px] w-[600px] rounded-full opacity-[0.08] blur-[120px]"
+        style={{ background: "radial-gradient(circle, #5168FF 0%, #7B8FFF 40%, transparent 70%)" }} />
+      {/* Soft accent glow bottom-left */}
+      <div className="absolute bottom-0 -left-32 h-[500px] w-[500px] rounded-full opacity-[0.06] blur-[100px]"
+        style={{ background: "radial-gradient(circle, #9724A6 0%, #C77DDC 40%, transparent 70%)" }} />
+      {/* Warm glow center-right */}
+      <div className="absolute top-1/2 right-[10%] h-[400px] w-[400px] rounded-full opacity-[0.05] blur-[100px]"
+        style={{ background: "radial-gradient(circle, #50599B 0%, transparent 60%)" }} />
     </div>
   );
 }
@@ -41,12 +40,10 @@ export function Hero() {
   };
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen overflow-hidden">
+    <section ref={sectionRef} className="relative min-h-screen overflow-hidden bg-[#FBF8FF]">
       {/* Layered bg */}
-      <MeshGradient />
-      <CyberpunkBackground />
-      <div className="pointer-events-none absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-gray-950 to-transparent" />
-      <div className="pointer-events-none absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-gray-950 to-transparent z-20" />
+      <LightBackground />
+      <div className="pointer-events-none absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#FBF8FF] to-transparent z-20" />
 
       {/* Content */}
       <motion.div
@@ -57,8 +54,8 @@ export function Hero() {
 
           {/* ── Left: Azura character ──────────────────────────── */}
           <div className="relative hidden lg:col-span-5 lg:flex lg:items-end lg:justify-start lg:self-end -ml-6">
-            {/* Glow behind Azura */}
-            <div className="absolute bottom-0 left-1/3 -translate-x-1/2 h-[450px] w-[450px] rounded-full bg-purple-500/15 blur-[80px]" />
+            {/* Soft glow behind character */}
+            <div className="absolute bottom-0 left-1/3 -translate-x-1/2 h-[450px] w-[450px] rounded-full bg-[#5168FF]/[0.07] blur-[80px]" />
 
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -68,10 +65,10 @@ export function Hero() {
             >
               <Image
                 src="/azura-hero.webp"
-                alt="Azura — AI treasury agent"
+                alt="Mental Wealth Academy"
                 width={580}
                 height={773}
-                className="h-auto w-full max-w-[520px] object-contain object-bottom drop-shadow-2xl"
+                className="h-auto w-full max-w-[520px] object-contain object-bottom drop-shadow-[0_20px_40px_rgba(81,104,255,0.12)]"
                 priority
               />
             </motion.div>
@@ -85,27 +82,27 @@ export function Hero() {
             className="flex flex-col gap-6 py-32 lg:col-span-7 lg:py-0 lg:pl-8"
           >
             <motion.div variants={item}>
-              <Badge variant="info" className="w-fit gap-1.5 border border-purple-500/20 bg-purple-500/10 text-purple-300 px-3 py-1 text-xs">
-                <span className="h-1.5 w-1.5 rounded-full bg-purple-400 animate-pulse" />
-                AI-powered treasury for your business
+              <Badge variant="info" className="w-fit gap-1.5 border border-[#5168FF]/20 bg-[#5168FF]/[0.08] text-[#5168FF] px-3 py-1 text-xs font-medium">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#5168FF] animate-pulse" />
+                Mental Wealth Academy
               </Badge>
             </motion.div>
 
             <motion.div variants={item}>
-              <h1 className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl xl:text-6xl">
-                <span className="block text-gray-50">Your CRM and Payroll,</span>
-                <span className="block text-cyan-400 mt-1">
-                  managed by AI.
+              <h1 className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl xl:text-6xl font-[Poppins,sans-serif]">
+                <span className="block text-[#1A1B24]">Unlock Your Full</span>
+                <span className="block text-[#5168FF] mt-1">
+                  Mental Wealth.
                 </span>
               </h1>
             </motion.div>
 
             <motion.div variants={item}>
-              <p className="max-w-lg text-lg leading-relaxed text-gray-400">
-                Add Bitcoin, Ethereum, and stablecoins to your company&apos;s
-                digital treasury. Azura&apos;s AI agent handles rebalancing,
-                payroll, and cross-chain transfers — so you can focus on
-                building your business.
+              <p className="max-w-lg text-lg leading-relaxed text-[#1A1B24]/60">
+                Build better habits, boost productivity, and grow your wealth
+                mindset. The Mental Wealth Academy combines AI-powered coaching,
+                structured courses, and a supportive community to help you
+                reach your highest potential.
               </p>
             </motion.div>
 
@@ -113,38 +110,30 @@ export function Hero() {
               <Link href="/dashboard">
                 <Button
                   size="lg"
-                  className="animate-pulse-glow border-purple-200/30 hover:border-purple-200/50 hover:shadow-[0_0_36px_rgba(99,102,241,0.45),0_4px_16px_rgba(0,0,0,0.3),0_0_0_1px_rgba(34,211,238,0.2)] transition-all duration-300"
+                  className="bg-[#5168FF] hover:bg-[#3f53e0] text-white border border-[#5168FF]/30 shadow-[0_4px_16px_rgba(81,104,255,0.3),0_1px_3px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_24px_rgba(81,104,255,0.4),0_2px_6px_rgba(0,0,0,0.1)] transition-all duration-300 rounded-lg"
                 >
-                  Open Dashboard
+                  Start Learning
                 </Button>
               </Link>
               <Button
                 variant="secondary"
                 size="lg"
-                className="border-white/[0.08] bg-white/[0.03] backdrop-blur-sm hover:bg-white/[0.06]"
+                className="border border-[rgba(0,0,0,0.08)] bg-white/80 text-[#1A1B24] backdrop-blur-sm hover:bg-white hover:border-[rgba(0,0,0,0.12)] rounded-lg shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
               >
-                See How It Works
+                Explore Courses
               </Button>
-            </motion.div>
-
-            <motion.div variants={item}>
-              <div className="group flex items-center gap-3 w-fit rounded-lg border border-white/[0.08] bg-white/[0.02] backdrop-blur-sm px-4 py-2.5 transition-colors hover:border-white/[0.12] hover:bg-white/[0.04] cursor-pointer">
-                <span className="text-purple-400 font-mono text-sm">$</span>
-                <code className="font-mono text-sm text-gray-300">npx azura init</code>
-                <span className="text-[10px] text-gray-600 border border-white/[0.08] rounded px-1.5 py-0.5 group-hover:text-gray-400 transition-colors">copy</span>
-              </div>
             </motion.div>
 
             {/* Stats strip */}
             <motion.div variants={item} className="flex items-center gap-6 pt-3">
               {[
-                { label: "Supported Chains", value: "6+", color: "text-cyan-400" },
-                { label: "Uptime", value: "99.9%", color: "text-emerald-400" },
-                { label: "Businesses Onboarded", value: "200+", color: "text-fuchsia-400" },
+                { label: "Mental Modules", value: "50+", color: "text-[#9724A6]" },
+                { label: "Active Members", value: "2,400+", color: "text-[#5168FF]" },
+                { label: "Wealth Courses", value: "30+", color: "text-[#50599B]" },
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col">
                   <span className={`text-lg font-bold ${stat.color}`}>{stat.value}</span>
-                  <span className="text-[11px] text-gray-500">{stat.label}</span>
+                  <span className="text-[11px] text-[#1A1B24]/40 font-medium">{stat.label}</span>
                 </div>
               ))}
             </motion.div>
@@ -153,16 +142,16 @@ export function Hero() {
         </div>
       </motion.div>
 
-      {/* Mobile: Azura character below content */}
+      {/* Mobile: character below content */}
       <div className="relative z-10 flex justify-center lg:hidden -mt-8">
         <div className="relative">
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[280px] w-[280px] rounded-full bg-purple-500/15 blur-[60px]" />
+          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[280px] w-[280px] rounded-full bg-[#5168FF]/[0.07] blur-[60px]" />
           <Image
             src="/azura-hero.webp"
-            alt="Azura — AI treasury agent"
+            alt="Mental Wealth Academy"
             width={380}
             height={507}
-            className="relative h-auto w-[320px] object-contain object-bottom drop-shadow-2xl"
+            className="relative h-auto w-[320px] object-contain object-bottom drop-shadow-[0_20px_40px_rgba(81,104,255,0.12)]"
             priority
           />
         </div>

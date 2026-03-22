@@ -21,7 +21,7 @@ export function Navbar() {
     <nav
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "border-b border-white/[0.06] bg-gray-950/70 backdrop-blur-xl shadow-lg"
+          ? "border-b border-[rgba(0,0,0,0.08)] bg-white/90 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)]"
           : "bg-transparent"
       }`}
     >
@@ -36,21 +36,21 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-gray-400 transition-colors hover:text-gray-50"
+              className="text-sm font-medium text-[#1A1B24]/60 transition-colors hover:text-[#1A1B24]"
             >
               {link.label}
             </a>
           ))}
           <Link href="/dashboard">
-            <Button size="sm" className="bg-purple-500 hover:bg-purple-400 shadow-sm shadow-purple-500/20 hover:shadow-[0_0_20px_rgba(217,70,239,0.3),0_0_8px_rgba(99,102,241,0.4)] transition-all duration-300">
-              Launch App
+            <Button size="sm" className="bg-[#5168FF] hover:bg-[#3f53e0] text-white shadow-[0_2px_8px_rgba(81,104,255,0.3)] hover:shadow-[0_4px_16px_rgba(81,104,255,0.4)] transition-all duration-300 rounded-lg">
+              Get Started
             </Button>
           </Link>
         </div>
 
         {/* Mobile hamburger */}
         <button
-          className="inline-flex items-center justify-center rounded-sm p-2 text-gray-400 hover:bg-gray-800 hover:text-gray-50 md:hidden"
+          className="inline-flex items-center justify-center rounded-sm p-2 text-[#1A1B24]/60 hover:bg-[#5168FF]/5 hover:text-[#1A1B24] md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
         >
@@ -60,21 +60,21 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-b border-gray-700 bg-gray-950/95 backdrop-blur-xl md:hidden">
+        <div className="border-b border-[rgba(0,0,0,0.08)] bg-white/95 backdrop-blur-xl md:hidden">
           <div className="flex flex-col gap-4 px-6 py-4">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-gray-400 transition-colors hover:text-gray-50"
+                className="text-sm font-medium text-[#1A1B24]/60 transition-colors hover:text-[#1A1B24]"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
               </a>
             ))}
             <Link href="/dashboard" onClick={() => setMobileOpen(false)}>
-              <Button size="sm" className="w-full">
-                Launch App
+              <Button size="sm" className="w-full bg-[#5168FF] hover:bg-[#3f53e0] text-white shadow-[0_2px_8px_rgba(81,104,255,0.3)] rounded-lg">
+                Get Started
               </Button>
             </Link>
           </div>

@@ -3,18 +3,18 @@ import { FOOTER_LINKS } from "@/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/[0.06] bg-gray-950">
+    <footer className="border-t border-white/[0.06] bg-[#12131B]">
       <div className="mx-auto max-w-content px-6 py-12 lg:py-16">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
           <div className="flex flex-col gap-4">
             <Logo size="lg" />
             <p className="text-sm text-gray-400">
-              AI-managed digital treasury for your business. Powered by Chainlink.
+              Unlock your potential with world-class courses and mentorship.
             </p>
-            <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/5 px-3 py-1 text-xs text-blue-400">
-              <span className="h-2 w-2 rounded-full bg-blue-400 animate-pulse" />
-              Built on Chainlink
+            <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-[#5168FF]/20 bg-[#5168FF]/5 px-3 py-1 text-xs text-[#7586FF]">
+              <span className="h-2 w-2 rounded-full bg-[#5168FF] animate-pulse" />
+              Mental Wealth Academy
             </div>
           </div>
 
@@ -42,7 +42,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-gray-700 pt-8 sm:flex-row">
           <p className="text-xs text-gray-400">
-            &copy; {new Date().getFullYear()} Azura. All rights reserved.
+            &copy; {new Date().getFullYear()} Mental Wealth Academy. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a

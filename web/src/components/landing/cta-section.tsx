@@ -11,35 +11,34 @@ export function CTASection() {
       <div className="mx-auto max-w-[1280px] px-6">
         <MotionWrapper
           variants={staggerContainer}
-          className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-gray-900/80 px-8 py-16 text-center lg:px-16 lg:py-20"
+          className="relative overflow-hidden rounded-2xl border border-[rgba(0,0,0,0.08)] bg-white/95 px-8 py-16 text-center lg:px-16 lg:py-20 shadow-[0_4px_24px_rgba(81,104,255,0.1)]"
         >
-          {/* Mesh orbs */}
-          <div className="pointer-events-none absolute -top-24 -right-24 h-[400px] w-[400px] rounded-full bg-purple-500/15 blur-[100px]" />
-          <div className="pointer-events-none absolute -bottom-24 -left-24 h-[300px] w-[300px] rounded-full bg-blue-500/10 blur-[80px]" />
-          <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[250px] w-[250px] rounded-full bg-fuchsia-500/[0.06] blur-[80px]" />
+          {/* Subtle background accent */}
+          <div className="pointer-events-none absolute -top-24 -right-24 h-[400px] w-[400px] rounded-full bg-[#5168FF]/[0.05] blur-[100px]" />
+          <div className="pointer-events-none absolute -bottom-24 -left-24 h-[300px] w-[300px] rounded-full bg-[#7586FF]/[0.04] blur-[80px]" />
 
           {/* Dot grid overlay */}
           <div
-            className="pointer-events-none absolute inset-0 opacity-20"
+            className="pointer-events-none absolute inset-0 opacity-30"
             style={{
               backgroundImage:
-                "radial-gradient(circle, rgba(136,136,160,0.2) 1px, transparent 1px)",
+                "radial-gradient(circle, rgba(81,104,255,0.1) 1px, transparent 1px)",
               backgroundSize: "24px 24px",
             }}
           />
 
           <div className="relative flex flex-col items-center gap-6">
             <MotionWrapper variants={fadeInUp}>
-              <h2 className="text-3xl font-bold tracking-tight lg:text-4xl">
-                Ready to digitize your{" "}
-                <span className="text-fuchsia-400">business treasury</span>?
+              <h2 className="text-3xl font-bold tracking-tight text-[#1A1B24] lg:text-4xl">
+                Ready to unlock your{" "}
+                <span className="text-[#5168FF]">full potential</span>?
               </h2>
             </MotionWrapper>
 
             <MotionWrapper variants={fadeInUp}>
-              <p className="max-w-lg text-lg text-gray-400">
-                Add BTC, ETH, and stablecoins to your company&apos;s treasury
-                and let Azura&apos;s AI agent manage it. No sales calls required.
+              <p className="max-w-lg text-lg text-[rgba(26,27,36,0.6)]">
+                Join Mental Wealth Academy and access world-class courses,
+                mentorship, and tools to transform your personal and professional growth.
               </p>
             </MotionWrapper>
 
@@ -48,26 +47,24 @@ export function CTASection() {
                 <Link href="/dashboard">
                   <Button
                     size="lg"
-                    className="animate-pulse-glow border-purple-200/30 hover:border-purple-200/50 hover:shadow-[0_0_36px_rgba(99,102,241,0.45),0_4px_16px_rgba(0,0,0,0.3),0_0_0_1px_rgba(34,211,238,0.2)] transition-all duration-200"
+                    className="shadow-[0_4px_16px_rgba(81,104,255,0.3)] hover:shadow-[0_4px_24px_rgba(81,104,255,0.45)] transition-all duration-200"
                   >
-                    Get Started
+                    Start Learning
                   </Button>
                 </Link>
                 <Button
                   variant="secondary"
                   size="lg"
-                  className="border-white/[0.08] bg-white/[0.03] backdrop-blur-sm hover:bg-white/[0.06]"
                 >
-                  Read the Docs
+                  Explore Courses
                 </Button>
               </div>
             </MotionWrapper>
 
             <MotionWrapper variants={fadeInUp}>
-              <div className="flex items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.02] backdrop-blur-sm px-4 py-2 font-mono text-sm text-gray-400">
-                <span className="text-purple-400">$</span>
-                <span>npx azura init</span>
-              </div>
+              <p className="text-sm text-[rgba(26,27,36,0.5)]">
+                Free trial available &middot; No credit card required
+              </p>
             </MotionWrapper>
           </div>
         </MotionWrapper>
