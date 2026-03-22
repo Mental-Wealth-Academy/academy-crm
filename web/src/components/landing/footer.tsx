@@ -10,7 +10,7 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             <Logo size="lg" />
             <p className="text-sm text-gray-400">
-              Unlock your potential with world-class courses and mentorship.
+              AI-powered CRM and payroll for modern businesses.
             </p>
             <div className="mt-2 inline-flex items-center gap-2 rounded-full border border-[#5168FF]/20 bg-[#5168FF]/5 px-3 py-1 text-xs text-[#7586FF]">
               <span className="h-2 w-2 rounded-full bg-[#5168FF] animate-pulse" />

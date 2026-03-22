@@ -110,6 +110,11 @@
   50% { filter: hue-rotate(15deg) brightness(1.1); }
 }
 
+@keyframes rainbow-slide {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
 /* Light-first defaults (MWA) */
 body {
   background-color: #FBF8FF;

@@ -27,19 +27,18 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mental Wealth Academy — Your Mind, Productivity & Wealth Platform",
+  title: "Mental Wealth Academy — AI-Powered CRM & Payroll",
   description:
-    "Mental Wealth Academy is an all-in-one academy and CRM platform for mental health, productivity, and wealth-building. Track progress, manage clients, and grow.",
+    "Mental Wealth Academy is an all-in-one AI-powered CRM platform. Manage clients, automate payroll, and track your team's progress — all from one dashboard.",
   keywords: [
-    "mental health",
-    "productivity",
-    "wealth",
-    "academy",
     "CRM",
-    "personal development",
-    "coaching",
-    "mental wealth",
-    "learning platform",
+    "payroll",
+    "AI",
+    "client management",
+    "business automation",
+    "team management",
+    "invoicing",
+    "mental wealth academy",
   ],
 };
 

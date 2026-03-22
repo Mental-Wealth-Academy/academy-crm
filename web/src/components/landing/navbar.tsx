@@ -21,7 +21,7 @@ export function Navbar() {
     <nav
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "border-b border-[rgba(0,0,0,0.08)] bg-white/90 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)]"
+          ? "bg-white/90 backdrop-blur-xl shadow-[0_1px_3px_rgba(0,0,0,0.05)]"
           : "bg-transparent"
       }`}
     >
@@ -80,6 +80,16 @@ export function Navbar() {
           </div>
         </div>
       )}
+
+      {/* Rainbow gradient border line */}
+      <div
+        className="h-[2px] w-full"
+        style={{
+          background: "var(--mwa-rainbow)",
+          backgroundSize: "200% 100%",
+          animation: "rainbow-slide 4s linear infinite",
+        }}
+      />
     </nav>
   );
 }

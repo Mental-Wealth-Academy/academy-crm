@@ -19,7 +19,7 @@ export function HowItWorks() {
             How It Works
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-[#1A1B24] lg:text-4xl">
-            Go from zero to mastering your mindset
+            Get started in minutes
           </h2>
         </MotionWrapper>
 

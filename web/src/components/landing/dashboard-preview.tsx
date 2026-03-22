@@ -12,13 +12,13 @@ export function DashboardPreview() {
             Dashboard
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-[#1A1B24] lg:text-4xl">
-            Your learning journey,{" "}
+            Your clients and team,{" "}
             <span className="text-[#5168FF]">
               one dashboard
             </span>
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-[rgba(26,27,36,0.6)]">
-            Track your courses, certifications, and progress across every module.
+            Manage clients, track payroll, and monitor team performance.
             See what matters most at a glance.
           </p>
         </MotionWrapper>
@@ -47,10 +47,10 @@ export function DashboardPreview() {
               {/* Top stats row */}
               <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 mb-6">
                 {[
-                  { label: "Courses Completed", value: "12", change: "+3 this month", valueColor: "text-[#1A1B24]", changeColor: "text-emerald-600" },
-                  { label: "Active Modules", value: "4", change: "+1 this week", valueColor: "text-[#5168FF]", changeColor: "text-emerald-600" },
-                  { label: "Certifications", value: "8", change: "+2 earned", valueColor: "text-[#1A1B24]", changeColor: "text-[#5168FF]" },
-                  { label: "Learning Hours", value: "142h", change: "this quarter", valueColor: "text-[#50599B]", changeColor: "text-[rgba(26,27,36,0.5)]" },
+                  { label: "Total Clients", value: "2,847", change: "+12.4%", valueColor: "text-[#1A1B24]", changeColor: "text-emerald-600" },
+                  { label: "Active Projects", value: "7", change: "+2 this week", valueColor: "text-[#5168FF]", changeColor: "text-emerald-600" },
+                  { label: "Invoices (30d)", value: "342", change: "+18%", valueColor: "text-[#1A1B24]", changeColor: "text-[#5168FF]" },
+                  { label: "Revenue", value: "$48.2k", change: "this month", valueColor: "text-[#50599B]", changeColor: "text-[rgba(26,27,36,0.5)]" },
                 ].map((stat) => (
                   <div key={stat.label} className="rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/95 p-4 shadow-[0_2px_8px_rgba(81,104,255,0.05)]">
                     <p className="text-[11px] text-[rgba(26,27,36,0.5)] uppercase tracking-wider mb-1">{stat.label}</p>
@@ -64,7 +64,7 @@ export function DashboardPreview() {
                 {/* Chart area — left 3 cols */}
                 <div className="lg:col-span-3 rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/95 p-5 shadow-[0_2px_8px_rgba(81,104,255,0.05)]">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm font-semibold text-[#1A1B24]">Progress Over Time</span>
+                    <span className="text-sm font-semibold text-[#1A1B24]">Revenue Over Time</span>
                     <div className="flex gap-1">
                       {["7d", "30d", "90d"].map((period) => (
                         <button
@@ -122,13 +122,13 @@ export function DashboardPreview() {
                 <div className="lg:col-span-2 flex flex-col gap-4">
                   {/* Active Modules */}
                   <div className="rounded-xl border border-[rgba(0,0,0,0.08)] bg-white/95 p-4 shadow-[0_2px_8px_rgba(81,104,255,0.05)]">
-                    <span className="text-sm font-semibold text-[#1A1B24]">Active Modules</span>
+                    <span className="text-sm font-semibold text-[#1A1B24]">Active Workflows</span>
                     <div className="mt-3 space-y-2">
                       {[
-                        { name: "Mindset Mastery", status: "in progress", trigger: "week 3", color: "#5168FF" },
-                        { name: "Business Strategy", status: "enrolled", trigger: "starts Mon", color: "#F59E0B" },
-                        { name: "Financial Literacy", status: "in progress", trigger: "week 5", color: "#5168FF" },
-                        { name: "Leadership Skills", status: "completed", trigger: "certified", color: "#10B981" },
+                        { name: "Client Onboarding", status: "running", trigger: "automated", color: "#5168FF" },
+                        { name: "Weekly Payroll", status: "scheduled", trigger: "cron", color: "#F59E0B" },
+                        { name: "Invoice Reminders", status: "running", trigger: "trigger", color: "#5168FF" },
+                        { name: "Team Reports", status: "completed", trigger: "weekly", color: "#10B981" },
                       ].map((wf) => (
                         <div key={wf.name} className="flex items-center justify-between rounded-lg bg-[#FBF8FF] border border-[rgba(0,0,0,0.06)] px-3 py-2">
                           <div className="flex items-center gap-2">
@@ -146,9 +146,9 @@ export function DashboardPreview() {
                     <span className="text-sm font-semibold text-[#1A1B24]">Recent Activity</span>
                     <div className="mt-3 space-y-2">
                       {[
-                        { action: "Completed Module 5 Quiz", chain: "Mindset", time: "2m ago", color: "#5168FF" },
-                        { action: "Earned Certificate", chain: "Strategy", time: "18m ago", color: "#10B981" },
-                        { action: "Joined Live Session", chain: "Finance", time: "1h ago", color: "#F59E0B" },
+                        { action: "New client added", chain: "CRM", time: "2m ago", color: "#5168FF" },
+                        { action: "Payroll processed (12)", chain: "Payroll", time: "18m ago", color: "#10B981" },
+                        { action: "Invoice #1042 paid", chain: "Billing", time: "1h ago", color: "#F59E0B" },
                       ].map((tx, i) => (
                         <div key={i} className="flex items-center justify-between rounded-lg bg-[#FBF8FF] border border-[rgba(0,0,0,0.06)] px-3 py-2">
                           <span className="text-xs text-[#1A1B24]">{tx.action}</span>

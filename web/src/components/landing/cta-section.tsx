@@ -30,15 +30,16 @@ export function CTASection() {
           <div className="relative flex flex-col items-center gap-6">
             <MotionWrapper variants={fadeInUp}>
               <h2 className="text-3xl font-bold tracking-tight text-[#1A1B24] lg:text-4xl">
-                Ready to unlock your{" "}
-                <span className="text-[#5168FF]">full potential</span>?
+                Ready to streamline your{" "}
+                <span className="text-[#5168FF]">business operations</span>?
               </h2>
             </MotionWrapper>
 
             <MotionWrapper variants={fadeInUp}>
               <p className="max-w-lg text-lg text-[rgba(26,27,36,0.6)]">
-                Join Mental Wealth Academy and access world-class courses,
-                mentorship, and tools to transform your personal and professional growth.
+                Manage clients, automate payroll, and track your team&apos;s
+                progress — all from one AI-powered CRM platform.
+                No sales calls required.
               </p>
             </MotionWrapper>
 
@@ -49,14 +50,14 @@ export function CTASection() {
                     size="lg"
                     className="shadow-[0_4px_16px_rgba(81,104,255,0.3)] hover:shadow-[0_4px_24px_rgba(81,104,255,0.45)] transition-all duration-200"
                   >
-                    Start Learning
+                    Get Started
                   </Button>
                 </Link>
                 <Button
                   variant="secondary"
                   size="lg"
                 >
-                  Explore Courses
+                  See a Demo
                 </Button>
               </div>
             </MotionWrapper>

@@ -84,25 +84,24 @@ export function Hero() {
             <motion.div variants={item}>
               <Badge variant="info" className="w-fit gap-1.5 border border-[#5168FF]/20 bg-[#5168FF]/[0.08] text-[#5168FF] px-3 py-1 text-xs font-medium">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#5168FF] animate-pulse" />
-                Mental Wealth Academy
+                AI-powered CRM for your business
               </Badge>
             </motion.div>
 
             <motion.div variants={item}>
               <h1 className="text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl xl:text-6xl font-[Poppins,sans-serif]">
-                <span className="block text-[#1A1B24]">Unlock Your Full</span>
+                <span className="block text-[#1A1B24]">Your CRM and Payroll,</span>
                 <span className="block text-[#5168FF] mt-1">
-                  Mental Wealth.
+                  managed by AI.
                 </span>
               </h1>
             </motion.div>
 
             <motion.div variants={item}>
               <p className="max-w-lg text-lg leading-relaxed text-[#1A1B24]/60">
-                Build better habits, boost productivity, and grow your wealth
-                mindset. The Mental Wealth Academy combines AI-powered coaching,
-                structured courses, and a supportive community to help you
-                reach your highest potential.
+                The all-in-one CRM platform for managing clients, tracking
+                progress, and automating payroll. MWA handles the busywork
+                so you can focus on growing your business.
               </p>
             </motion.div>
 
@@ -112,7 +111,7 @@ export function Hero() {
                   size="lg"
                   className="bg-[#5168FF] hover:bg-[#3f53e0] text-white border border-[#5168FF]/30 shadow-[0_4px_16px_rgba(81,104,255,0.3),0_1px_3px_rgba(0,0,0,0.08)] hover:shadow-[0_6px_24px_rgba(81,104,255,0.4),0_2px_6px_rgba(0,0,0,0.1)] transition-all duration-300 rounded-lg"
                 >
-                  Start Learning
+                  Open Dashboard
                 </Button>
               </Link>
               <Button
@@ -120,16 +119,16 @@ export function Hero() {
                 size="lg"
                 className="border border-[rgba(0,0,0,0.08)] bg-white/80 text-[#1A1B24] backdrop-blur-sm hover:bg-white hover:border-[rgba(0,0,0,0.12)] rounded-lg shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
               >
-                Explore Courses
+                See How It Works
               </Button>
             </motion.div>
 
             {/* Stats strip */}
             <motion.div variants={item} className="flex items-center gap-6 pt-3">
               {[
-                { label: "Mental Modules", value: "50+", color: "text-[#9724A6]" },
-                { label: "Active Members", value: "2,400+", color: "text-[#5168FF]" },
-                { label: "Wealth Courses", value: "30+", color: "text-[#50599B]" },
+                { label: "Active Clients", value: "2,400+", color: "text-[#9724A6]" },
+                { label: "Uptime", value: "99.9%", color: "text-[#5168FF]" },
+                { label: "Businesses Onboarded", value: "200+", color: "text-[#50599B]" },
               ].map((stat) => (
                 <div key={stat.label} className="flex flex-col">
                   <span className={`text-lg font-bold ${stat.color}`}>{stat.value}</span>

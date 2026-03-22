@@ -21,10 +21,10 @@ export function Features() {
       <div className="relative mx-auto max-w-[1280px] px-6">
         <MotionWrapper variants={fadeInUp} className="mb-12 text-center lg:mb-16">
           <p className="mb-3 text-sm font-medium tracking-wider text-[#5168FF] uppercase">
-            Why Students Choose MWA
+            Why Businesses Choose MWA
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-[#1A1B24] lg:text-4xl">
-            Everything your growth journey{" "}
+            Everything your business{" "}
             <span className="text-[#5168FF]">
               needs
             </span>

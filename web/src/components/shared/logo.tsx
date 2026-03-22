@@ -15,12 +15,12 @@ export function Logo({ size = "md", className }: LogoProps) {
   return (
     <span
       className={cn(
-        "font-bold tracking-tight text-purple-500",
+        "font-bold tracking-tight text-[#5168FF]",
         sizeStyles[size],
         className
       )}
     >
-      Azura
+      MWA
     </span>
   );
 }
